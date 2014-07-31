@@ -16,6 +16,26 @@
 #include <vector>
 #include <iostream>
 
+
+/** ----------------------------------------------------------------------
+ * Computes the sum of all multiples of 3 and 5 smaller than input
+ * 
+ * @author Ammar Husain <ahusain@nrec.ri.cmu.edu>
+ * @date 07/31/2014 
+ * @param input 
+ * 
+ * @return 
+ ---------------------------------------------------------------------- */
+int sumMultiples(int input) {
+    int sum(0);
+    
+    for (int i = 0; i < input; i++) {
+        if ((i%3 == 0)||(i%5 == 0))
+            sum+=i;
+    }
+    return sum;
+}
+
 /** ----------------------------------------------------------------
  * Main Routine
  * 
@@ -25,8 +45,24 @@
  * @return 
  ---------------------------------------------------------------- */
 int main(int argc, char *argv[]) {
-    std::cout << "Hello World!" << std::endl;
+    int numTests;
+    std::cin >> numTests;
+
+    int input, sum;
     
+    for (int i = 0; i < numTests; i++) {
+        std::cin >> input;
+        /// compute the actual sum
+        /// std::cout << sumMultiples(input) << std::endl;
+        sum = 0;
+        for (int i = 0; i < input; i++) {
+            if ((i%3 == 0)||(i%5 == 0))
+                sum+=i;
+        }
+        /// return sum;
+        std::cout << sum << std::endl;
+    }
+
     return 0;
 }
 
