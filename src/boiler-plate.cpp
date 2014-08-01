@@ -16,6 +16,8 @@
 #include <vector>
 #include <stdint.h>
 #include <iostream>
+#include <ctime>
+
 
 
 /** ----------------------------------------------------------------
@@ -45,7 +47,7 @@ int main(int argc, char *argv[]) {
         start = std::clock_t();
         /// do work here
 
-        duration = (std::clock() - start)/static_cast<double>(CLOCKS_PER_SEC;
+        duration = (std::clock() - start)/static_cast<double>(CLOCKS_PER_SEC);
         std::cout<< "it took: "<< duration << "s" << std::endl;
     }
 
