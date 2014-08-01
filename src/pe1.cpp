@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <vector>
+#include <stdint.h>
 #include <iostream>
 
 
@@ -26,13 +27,14 @@
  * 
  * @return 
  ---------------------------------------------------------------------- */
-uint sumMultiplesBrute(uint input) {
-    uint sum(0);
+uint64_t sumMultiplesBrute(uint input) {
+    uint64_t sum(0);
     
-    for (uint i = 0; i < input; i++) {
+    for (uint i = 1; i < input; i++) {
         if ((i%3 == 0)||(i%5 == 0))
             sum+=i;
     }
+
     return sum;
 }
 
@@ -47,16 +49,14 @@ uint sumMultiplesBrute(uint input) {
  * 
  * @return 
  ---------------------------------------------------------------------- */
-uint arithmeticProgressionSum(uint multiple, uint input) {
+uint64_t arithmeticProgressionSum(uint multiple, uint input) {
     /// compute the number of multiples
-    uint n =
+    uint64_t n =
         uint(ceil(static_cast<double>(input)/static_cast<double>(multiple)) - 1.0);
     /// get the last number in sequence
-    uint last = n*multiple;
+    uint64_t last = n*multiple;
     /// compute AP sum
-    uint sum = n*(multiple+last)/2;
-
-    std::cout << "m: " << multiple << " i: " << input << " s: " << sum << " n: " << n << std::endl;
+    uint64_t sum = n*(multiple+last)/2;
     
     return sum;
 }
@@ -74,15 +74,17 @@ int main(int argc, char *argv[]) {
     uint numTests;
     std::cin >> numTests;
 
-    uint input;
+    uint64_t input;
     
     for (uint i = 0; i < numTests; i++) {
         std::cin >> input;
         /// compute the actual sum
-        uint sum = arithmeticProgressionSum(3, input) + arithmeticProgressionSum(5, input) - arithmeticProgressionSum(15, input);
-        std::cout << sum << std::endl;
-        std::cout << "brute: " << sumMultiplesBrute(input) << std::endl;
+        uint64_t sum =
+            arithmeticProgressionSum(3, input)
+            + arithmeticProgressionSum(5, input)
+            - arithmeticProgressionSum(15, input);
 
+        std::cout << sum << std::endl;
     }
 
     return 0;
