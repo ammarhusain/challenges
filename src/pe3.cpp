@@ -18,6 +18,35 @@
 #include <iostream>
 
 
+/** ----------------------------------------------------------------------
+ * 
+ * 
+ * @author Ammar Husain <ahusain@nrec.ri.cmu.edu>
+ * @date 08/01/2014 
+ * @param number 
+ * 
+ * @return 
+ ---------------------------------------------------------------------- */
+uint64_t largestPrime(uint64_t number) {
+    uint64_t i = 2;
+    uint64_t checkLimit = number/i;
+
+    while (i < checkLimit) {
+        if (number%i == 0)
+            return largestPrime(number/i);
+
+        /// update checkLimit
+        checkLimit = number/i;
+
+        /// increment i;
+        i++;
+    }
+
+    /// number is only divisible by itself
+    return number;
+}
+
+
 /** ----------------------------------------------------------------
  * Main Routine
  * 
@@ -27,26 +56,16 @@
  * @return 
  ---------------------------------------------------------------- */
 int main(int argc, char *argv[]) {
-    std::cout << "Boiler-Plate code!" << std::endl;
-    
     uint numTests;
     std::cin >> numTests;
 
     uint64_t input;
 
-    /// keep a timer
-    std::clock_t start;
-    double duration;
-
-
     for (uint i = 0; i < numTests; i++) {
         std::cin >> input;
-
-        start = std::clock_t();
         /// do work here
-
-        duration = (std::clock() - start)/static_cast<double>(CLOCKS_PER_SEC;
-        std::cout<< "it took: "<< duration << "s" << std::endl;
+        uint64_t lq = largestPrime(input);
+        std::cout << lq << std::endl;
     }
 
     return 0;
