@@ -21,7 +21,7 @@
 
 using namespace std;
 
-int* splitNumber(char* number, uint N) {
+int* splitNumber(const char* number, uint N) {
     int* numberArray = new int(N);
     /// const char* digits = number.c_str();
     const char* digits = number;
@@ -34,7 +34,7 @@ int* splitNumber(char* number, uint N) {
 }
 
 
-uint64_t kLargestProduct(int* numberArray, uint N, uint K) {
+uint64_t kLargestProduct(const int* numberArray, uint N, uint K) {
     /// initialize a max product
     uint64_t maxProd = 0;
 
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     uint N, K;
     /// string number;
-    char* number;
+    /// char* number;
     
     /// keep a timer
     std::clock_t start;
@@ -77,21 +77,13 @@ int main(int argc, char *argv[]) {
     for (uint i = 0; i < numTests; i++) {
         std::cin >> N >> K;
         
-        number = new char[N];
+        char* number = new char[N];
         
         std::cin >> number;
         
         start = std::clock_t();
         /// do work here
  
-        /*
-        /// sanity check
-        if (number.size() != N) {
-            std::cout << 0 << std::endl;
-            continue;
-        }
-        */
-        
         int* numberArray = splitNumber(number, N);
 
         uint64_t largestProd = kLargestProduct(numberArray, N, K);
@@ -99,7 +91,8 @@ int main(int argc, char *argv[]) {
         std::cout << largestProd << std::endl;
 
         /// cleanup
-        delete number;
+        delete[] number;
+        /// delete[] numberArray;
         
         //delete numberArray;
         

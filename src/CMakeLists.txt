@@ -7,8 +7,10 @@ add_Executable (pe3 pe3.cpp)
 add_Executable (pe4 pe4.cpp)
 add_Executable (pe5 pe5.cpp)
 add_Executable (pe6 pe6.cpp)
+add_Executable (pe7 pe7.cpp)
+add_Executable (pe8 pe8.cpp)
 # link the libraries
 #target_link_libraries (Tutorial ${EXTRA_LIBS})
 
 # add the install targets
-install (TARGETS pe1 pe2 pe3 pe4 pe5 pe6 DESTINATION "${PROJECT_EULER_RELEASE_DIRECTORY}/bin")
+install (TARGETS pe1 pe2 pe3 pe4 pe5 pe6 pe7 pe8 DESTINATION "${PROJECT_EULER_RELEASE_DIRECTORY}/bin")
