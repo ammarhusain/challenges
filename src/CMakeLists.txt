@@ -13,8 +13,22 @@ add_Executable (pe9 pe9.cpp)
 add_Executable (pe10 pe10.cpp)
 add_Executable (pe11 pe11.cpp)
 add_Executable (pe12 pe12.cpp)
+add_Executable (pe13 pe13.cpp)
+add_Executable (pe14 pe14.cpp)
+add_Executable (pe15 pe15.cpp)
+add_Executable (pe16 pe16.cpp)
+
+add_Executable (pe18 pe18.cpp)
+
+add_Executable (pe20 pe20.cpp)
+
+add_Executable (pe22 pe22.cpp)
+
+
+add_Executable (pe25 pe25.cpp)
+
 # link the libraries
 #target_link_libraries (Tutorial ${EXTRA_LIBS})
 
 # add the install targets
-install (TARGETS pe1 pe2 pe3 pe4 pe5 pe6 pe7 pe8 pe9 pe10 pe11 pe12 DESTINATION "${PROJECT_EULER_RELEASE_DIRECTORY}/bin")
+install (TARGETS pe1 pe2 pe3 pe4 pe5 pe6 pe7 pe8 pe9 pe10 pe11 pe12 pe13 pe14 pe15 pe16 pe18 pe20 pe22 pe25 DESTINATION "${PROJECT_EULER_RELEASE_DIRECTORY}/bin")

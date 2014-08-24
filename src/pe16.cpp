@@ -20,26 +20,44 @@
 
 
 uint computeAndAdd(uint power) {
-    std::vector<uint> largeNum(5000, 0);
+    std::vector<uint64_t> largeNum(1500, 0);
 
     largeNum[0] = 1;
 
     for (uint i = 1; i <= power; i++) {
         uint remn = 0;
+        uint multiple = 0;
         /// multiply the large num by 2
-        for (uint j = 0; j < largeNum.size(); j++) {
-            uint multiple = 2*largeNum[j];
+        for (uint j = 0; j < largeNum.size()-1; j++) {
+            multiple = 2*largeNum[j];
             largeNum[j] = (multiple+remn)%10;
             remn = (multiple+remn)/10;
         }
+
+        /// for the last element store the whole number
+        multiple = 2*largeNum[largeNum.size()-1];
+        largeNum[largeNum.size()-1] = multiple + remn;
     }
 
     uint answer = 0;
-    /// iterate through and add the number
-    for (int k = largeNum.size()-1; k >= 0; k--) {
+    uint64_t lastElem = largeNum[largeNum.size()-1];
+    /// add the sum of digits of the last element
+    while (lastElem > 0) {
+        answer += lastElem%10;
+        lastElem = lastElem/10;
+    }
+    
+    /// iterate through and add the rest of the number
+    for (int k = largeNum.size()-2; k >= 0; k--) {
         answer += largeNum[k];
     }
 
+    /*
+    for (int k = largeNum.size()-1; k >= 0; k--) {
+        std::cout << largeNum[k];
+    }
+    std::cout << std::endl;
+    */
     return answer;
 }
 
