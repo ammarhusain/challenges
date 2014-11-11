@@ -29,27 +29,16 @@
  * @return 
  ---------------------------------------------------------------- */
 int main(int argc, char *argv[]) {
-    std::cout << "Boiler-Plate code!" << std::endl;
-    
-    uint numTests;
-    std::cin >> numTests;
-
-    uint64_t input;
-
+    std::cout << "Boiler-Plate code!" << std::endl;    
     /// keep a timer
     std::clock_t start;
     double duration;
 
+    start = std::clock_t();
+    /// do work here
 
-    for (uint i = 0; i < numTests; i++) {
-        std::cin >> input;
-
-        start = std::clock_t();
-        /// do work here
-
-        duration = (std::clock() - start)/static_cast<double>(CLOCKS_PER_SEC);
-        std::cout<< "it took: "<< duration << "s" << std::endl;
-    }
+    duration = (std::clock() - start)/static_cast<double>(CLOCKS_PER_SEC);
+    std::cout<< "it took: "<< duration << "s" << std::endl;
 
     return 0;
 }
